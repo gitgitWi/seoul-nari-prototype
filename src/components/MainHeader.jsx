@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import MainSearchBar from "./MainSearchBar.jsx";
@@ -14,13 +15,26 @@ const StyledHeader = styled.div`
   height: 37vh;
 `;
 
-const StyledTitle = styled.div`
+const StyledTitleButton = styled.button`
   display: block;
+
+  background-color: transparent;
+  border: 0;
+
   font-family: "Lato", sans-serif;
   font-weight: 900;
   font-size: 6rem;
   font-style: italic;
   color: rgb(88, 53, 94);
+  transition: 0.1s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
 
   @media (max-width: 335px) {
     font-size: 2rem;
@@ -32,10 +46,14 @@ const StyledTitle = styled.div`
 `;
 
 export default function MainHeader(props) {
+  const setResults = props.setResults;
+  const onTitleClick = () => {
+    setResults([]);
+  };
   return (
     <StyledHeader>
-      <StyledTitle>Seoul Nari</StyledTitle>
-      <MainSearchBar setResults={props.setResults} />
+      <StyledTitleButton onClick={onTitleClick}>Seoul Nari</StyledTitleButton>
+      <MainSearchBar setResults={setResults} />
     </StyledHeader>
   );
 }
