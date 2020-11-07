@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import AlertIcon from "./AlertIcon";
+import addNari from "../db/addNariService";
 
 const StyledForm = styled.form.attrs({
   method: "POST",
@@ -147,6 +149,22 @@ const StyledHeadCountAlert = styled.div.attrs()`
   }
 `;
 
+const StyledInputImgUrl = styled.input.attrs({
+  id: "imgUrl",
+  placeholder: "썸네일 이미지의 주소를 입력해주세요"
+})`
+  ${commonInputStyles}
+`;
+
+const StyledImgUrlAlert = styled.div.attrs()`
+  ${commonAlertStyles}
+  visibility: ${props => (props.isVisible ? "visible" : "hidden")};
+  
+  &:after {
+    content: "정상적인 URL 형태를 입력해주세요";
+  }
+`;
+
 const StyledSubmitButton = styled.input.attrs({
   type: "submit",
   value: "작성완료!"
@@ -163,6 +181,14 @@ const StyledSubmitButton = styled.input.attrs({
   font-size: 1.2rem;
   font-weight: 700;
   color: rgb(255, 255, 255, 0.8);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default function AddForm() {
@@ -181,6 +207,9 @@ export default function AddForm() {
 
   const [headCount, setHeadCount] = useState("");
   const [isHeadCountAlertVisible, setIsHeadCountAlertVisible] = useState(false);
+
+  const [imgUrl, setImgUrl] = useState("");
+  const [isImgUrlAlertVisible, setIsImgUrlAlertVisible] = useState(false);
 
   const onShopNameChange = ({ currentTarget }) => {
     const { value } = currentTarget;
@@ -212,7 +241,7 @@ export default function AddForm() {
 
   const onCostChange = ({ currentTarget }) => {
     const { value } = currentTarget;
-    const regCost = /\s+/;
+    const regCost = /\d+/;
 
     setCost(value);
     regCost.test(value)
@@ -222,7 +251,7 @@ export default function AddForm() {
 
   const onHeadCountChange = ({ currentTarget }) => {
     const { value } = currentTarget;
-    const regHeadCount = /\s+/;
+    const regHeadCount = /\d+/;
 
     setHeadCount(value);
     regHeadCount.test(value)
@@ -230,7 +259,17 @@ export default function AddForm() {
       : setIsHeadCountAlertVisible(true);
   };
 
-  const submitHandler = e => {
+  const onImgUrlChange = ({ currentTarget }) => {
+    const { value } = currentTarget;
+    const regUrl = /^[\S]+\.[\S]+/;
+
+    setImgUrl(value);
+    regUrl.test(value)
+      ? setIsHeadCountAlertVisible(false)
+      : setIsHeadCountAlertVisible(true);
+  };
+
+  const submitHandler = async e => {
     e.preventDefault();
 
     if (
@@ -239,7 +278,17 @@ export default function AddForm() {
       shopAddr &&
       !isShopAddrAlertVisible
     ) {
-      e.submit();
+      const inputData = {
+        shopName,
+        shopAddr,
+        depName,
+        visitTime,
+        cost,
+        headCount,
+        imgUrl
+      };
+
+      await addNari(inputData);
     } else {
       alert("필수 항목은 정확히 입력하셔야 합니다!!!");
     }
@@ -300,6 +349,16 @@ export default function AddForm() {
       <StyledHeadCountAlert isVisible={isHeadCountAlertVisible}>
         <AlertIcon />
       </StyledHeadCountAlert>
+
+      <StyledLabel
+        htmlFor="imgUrl"
+        content={"썸네일 이미지 URL"}
+        color="rgb(8, 76, 97)"
+      />
+      <StyledInputImgUrl value={imgUrl} onChange={onImgUrlChange} />
+      <StyledImgUrlAlert isVisible={isImgUrlAlertVisible}>
+        <AlertIcon />
+      </StyledImgUrlAlert>
 
       <StyledSubmitButton />
     </StyledForm>

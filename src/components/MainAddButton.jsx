@@ -29,8 +29,5 @@ const StyledAddButton = styled.button`
 `;
 
 export default function MainAddButton() {
-  const onButtonClick = e => {
-    // TODO
-  };
-  return <StyledAddButton onClick={onButtonClick}>+</StyledAddButton>;
+  return <StyledAddButton>+</StyledAddButton>;
 }

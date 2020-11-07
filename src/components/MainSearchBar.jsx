@@ -85,6 +85,11 @@ export default function MainSearchBar({ hasResults, setResults }) {
       alert("검색어가 입력되지 않았네여..");
       return;
     }
+    history.pushState(
+      { search: inputText },
+      `${inputText} 검색 결과`,
+      `/search/${inputText}`
+    );
     setInputText("");
     const results = await search.searchAll();
     setResults(results);

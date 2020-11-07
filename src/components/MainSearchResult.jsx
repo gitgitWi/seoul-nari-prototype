@@ -28,7 +28,7 @@ export default function MainSearchResult({ results }) {
   return (
     <StyledResultBody>
       {results.map(ele => (
-        <StyledLink to={`/detail/${ele.contents.name}`} key={ele.id}>
+        <StyledLink to={`/detail/${ele.id}`} key={ele.id}>
           <NariItem data={ele.contents} />
         </StyledLink>
       ))}

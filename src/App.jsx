@@ -14,6 +14,7 @@ const StyledBody = styled.div`
 
   width: 100%;
   height: 100%;
+  overflow: auto;
 
   margin: 0;
   padding: 0;
@@ -25,6 +26,7 @@ export default function App() {
   return (
     <StyledBody>
       <Route path="/" exact={true} component={Main} />
+      <Route path="/search/:query" component={Main} />
       <Route path="/new" component={AddNari} />
       <Route path="/detail/:shopName" component={DetailNari} />
     </StyledBody>

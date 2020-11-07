@@ -6,7 +6,7 @@ const StyledItem = styled.div`
 
   width: 100%;
   height: 100px;
-  margin: 10px 0;
+  margin: 20px 0;
 
   background-color: rgba(252, 252, 252, 0.3);
 
@@ -23,44 +23,65 @@ const StyledItem = styled.div`
 `;
 
 const StyledNariImg = styled.div`
-  width: 20%;
-  background-color: black;
+  width: 100px;
+  height: 100px;
+  margin-right:10px;
+
+  background-image: url("${props => props.imgUrl}");
+  background-size: cover;
+  border-radius: 15px 0 0 15px;
 `;
 
 const StyledNariInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 77%;
 `;
 
 const StyledNariTitle = styled.div`
   width: 100%;
   height: 40%;
+  padding: 15px;
   font-family: "Nanum Myeongjo", serif;
   font-size: 1.7rem;
   text-align: center;
+  color: rgb(205, 33, 42);
 `;
 
 const StyledNariDetail = styled.div`
-  height: 60%
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-around;
+  height: 60%;
 `;
 
-const StyledNariGo = styled.div`
-  width: 20%;
-  background-color: grey;
+const StyledNariAddr = styled.div`
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgb(50, 48, 49);
+`;
+
+const StyledNariCost = styled.div`
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(50, 48, 49);
 `;
 
 export default function NariItem({ data }) {
+  const { shopName, shopAddr, cost, headCount, imgUrl } = data;
   return (
     <StyledItem>
-      <StyledNariImg />
+      <StyledNariImg imgUrl={imgUrl} />
       <StyledNariInfo>
-        <StyledNariTitle>{data.name}</StyledNariTitle>
-        <StyledNariDetail>details..</StyledNariDetail>
+        <StyledNariTitle>{shopName}</StyledNariTitle>
+        <StyledNariDetail>
+          <StyledNariCost>
+            1인당 {(cost / headCount).toLocaleString()} 원
+          </StyledNariCost>
+          <StyledNariAddr>{shopAddr}</StyledNariAddr>
+        </StyledNariDetail>
       </StyledNariInfo>
-      <StyledNariGo />
     </StyledItem>
   );
 }
