@@ -13,7 +13,7 @@ const Config = {
 };
 
 firebase.initializeApp(Config);
-firebase.analytics();
+// firebase.analytics();
 
 const firestore = new firebase.firestore();
 

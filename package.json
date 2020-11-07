@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@firebase/analytics": "^0.6.2",
+    "@firebase/app": "0.x",
+    "@firebase/app-types": "0.x",
     "firebase": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

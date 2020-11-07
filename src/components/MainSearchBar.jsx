@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import search from "../db/searchService";
+
 const StyledSearchBar = styled.form.attrs({
   method: "GET",
   action: "#"
@@ -78,13 +80,15 @@ export default function MainSearchBar(props) {
     setInputText(text);
   };
 
-  const onSearchSubmit = e => {
+  const onSearchSubmit = async e => {
     e.preventDefault();
     if (inputText.length === 0) {
       alert("검색어가 입력되지 않았네여..");
+      return;
     }
-
     setInputText("");
+    const results = await search.searchAll();
+    setResults(results);
   };
 
   return (

@@ -25,7 +25,6 @@ export default function App() {
   return (
     <StyledBody>
       <MainHeader setResults={setResults} />
-
       <MainSearchResult results={results} />
     </StyledBody>
   );
