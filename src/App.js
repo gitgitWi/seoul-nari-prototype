@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import MainTitle from "./components/MainTitle.jsx";
-import MainSearchBar from "./components/MainSearchBar.jsx";
+import MainHeader from "./components/MainHeader.jsx";
+
+import MainSearchResult from "./components/MainSearchResult.jsx";
 
 const StyledBody = styled.div`
   position: absolute;
@@ -22,8 +23,9 @@ const StyledBody = styled.div`
 export default function App() {
   return (
     <StyledBody>
-      <MainTitle />
-      <MainSearchBar />
+      <MainHeader />
+
+      <MainSearchResult />
     </StyledBody>
   );
 }

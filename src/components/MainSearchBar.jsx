@@ -5,8 +5,6 @@ const StyledSearchBar = styled.form.attrs({
   method: "GET",
   action: "#"
 })`
-  position: absolute;
-  top: 32vh;
   z-index: 3;
 
   display: flex;
@@ -15,7 +13,7 @@ const StyledSearchBar = styled.form.attrs({
   align-items: center;
 
   width: 70vw;
-  max-width: 900px;
+  max-width: 700px;
   height: 3.5rem;
 
   margin: 15px;
