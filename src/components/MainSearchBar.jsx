@@ -19,7 +19,7 @@ const StyledSearchBar = styled.form.attrs({
   height: 3.5rem;
 
   margin: 15px;
-  box-shadow: 0px 0px 10px rgb(88, 53, 94);
+  box-shadow: 0px 0px 13px rgb(88, 53, 94);
   border-radius: 15px;
 
   background-color: rgb(255, 248, 240);

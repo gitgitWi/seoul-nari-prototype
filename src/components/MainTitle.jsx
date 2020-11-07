@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledTitle = styled.div`
   position: absolute;
-  top: 25vh;
+  top: 24.5vh;
 
   display: block;
 
