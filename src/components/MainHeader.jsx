@@ -15,6 +15,10 @@ const StyledHeader = styled.div`
   height: ${props => (props.hasResults ? "15vh" : "35vh")};
 `;
 
+const StyledTitleLink = styled(Link)`
+  text-decoration: none;
+`;
+
 const StyledTitleButton = styled.button`
   display: block;
 
@@ -53,9 +57,9 @@ export default function MainHeader({ setResults, hasResults }) {
   };
   return (
     <StyledHeader hasResults={hasResults}>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <StyledTitleLink to="/" onClick={onTitleClick}>
         <StyledTitleButton>Seoul Nari</StyledTitleButton>
-      </Link>
+      </StyledTitleLink>
       <MainSearchBar hasResults={hasResults} setResults={setResults} />
     </StyledHeader>
   );

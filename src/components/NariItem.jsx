@@ -42,7 +42,7 @@ const StyledNariTitle = styled.div`
 `;
 
 const StyledNariDetail = styled.div`
-height: 60%
+  height: 60%
   font-family: "Noto Sans KR", sans-serif;
   font-size: 0.8rem;
 `;

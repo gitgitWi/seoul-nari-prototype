@@ -19,6 +19,8 @@ const StyledResultBody = styled.div`
 
 const StyledLink = styled(Link)`
   width: 97%;
+
+  text-decoration: none;
 `;
 
 export default function MainSearchResult({ results }) {
