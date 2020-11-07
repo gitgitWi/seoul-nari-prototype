@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 const StyledItem = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-  width: 100%;
+  width: 90%;
+  max-width: 700px;
   height: 100px;
   margin: 20px 0;
 
@@ -25,7 +29,8 @@ const StyledItem = styled.div`
 const StyledNariImg = styled.div`
   width: 100px;
   height: 100px;
-  margin-right:10px;
+  margin:0;
+  left: 0;
 
   background-image: url("${props =>
     props.imgUrl.length
@@ -38,17 +43,18 @@ const StyledNariImg = styled.div`
 const StyledNariInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 77%;
+  justify-content: space-around;
+  width: calc(100% - 100px);
 `;
 
 const StyledNariTitle = styled.div`
   width: 100%;
   height: 40%;
-  padding: 15px;
+  padding: 10px 0;
   font-family: "Nanum Myeongjo", serif;
   font-size: 1.7rem;
   text-align: center;
-  color: rgb(205, 33, 42);
+  color: rgb(88, 53, 94);
 `;
 
 const StyledNariDetail = styled.div`

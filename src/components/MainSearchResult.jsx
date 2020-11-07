@@ -8,9 +8,10 @@ const StyledResultBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 
   margin-top: 80px;
-  width: 70vw;
+  width: 100vw;
   min-width: 200px;
   max-width: 700px;
   height: 600px;
@@ -18,8 +19,11 @@ const StyledResultBody = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  width: 97%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  width: 100%;
   text-decoration: none;
 `;
 
