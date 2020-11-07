@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import MainSearchBar from "./MainSearchBar.jsx";
@@ -28,6 +28,8 @@ const StyledTitleButton = styled.button`
   color: rgb(88, 53, 94);
   transition: 0.1s;
 
+  text-decoration: none;
+
   &:hover {
     cursor: pointer;
   }
@@ -51,7 +53,9 @@ export default function MainHeader({ setResults, hasResults }) {
   };
   return (
     <StyledHeader hasResults={hasResults}>
-      <StyledTitleButton onClick={onTitleClick}>Seoul Nari</StyledTitleButton>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <StyledTitleButton>Seoul Nari</StyledTitleButton>
+      </Link>
       <MainSearchBar hasResults={hasResults} setResults={setResults} />
     </StyledHeader>
   );

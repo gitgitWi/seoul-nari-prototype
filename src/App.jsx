@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import styled from "styled-components";
 
-import MainHeader from "./components/MainHeader.jsx";
-import MainSearchResult from "./components/MainSearchResult.jsx";
-import MainAddButton from "./components/MainAddButton.jsx"
+import Main from "./components/Main";
+import AddNari from "./components/AddNari";
+import DetailNari from "./components/DetailNari";
 
 const StyledBody = styled.div`
   position: absolute;
@@ -21,15 +22,11 @@ const StyledBody = styled.div`
 `;
 
 export default function App() {
-  const [results, setResults] = useState([]);
   return (
     <StyledBody>
-      <MainHeader
-        hasResults={results.length > 0 ? true : false}
-        setResults={setResults}
-      />
-      <MainSearchResult results={results} />
-      <MainAddButton />
+      <Route path="/" exact={true} component={Main} />
+      <Route path="/new" component={AddNari} />
+      <Route path="/detail/:shopName" component={DetailNari} />
     </StyledBody>
   );
 }

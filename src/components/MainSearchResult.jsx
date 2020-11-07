@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import NariItem from "./NariItem.jsx";
@@ -16,12 +17,18 @@ const StyledResultBody = styled.div`
   overflow: auto;
 `;
 
+const StyledLink = styled(Link)`
+  width: 97%;
+`;
+
 export default function MainSearchResult({ results }) {
   useEffect(() => {}, [results]);
   return (
     <StyledResultBody>
       {results.map(ele => (
-        <NariItem key={ele.id} data={ele.contents} />
+        <StyledLink to={`/detail/${ele.contents.name}`} key={ele.id}>
+          <NariItem data={ele.contents} />
+        </StyledLink>
       ))}
     </StyledResultBody>
   );
