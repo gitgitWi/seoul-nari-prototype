@@ -9,7 +9,9 @@ const StyledResultBody = styled.div`
   align-items: center;
 
   margin-top: 80px;
-  width: 600px;
+  width: 70vw;
+  min-width: 200px;
+  max-width: 700px;
   height: 600px;
   overflow: auto;
 `;
