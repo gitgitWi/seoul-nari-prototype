@@ -24,7 +24,6 @@ const StyledLink = styled(Link)`
 `;
 
 export default function MainSearchResult({ results }) {
-  useEffect(() => {}, [results]);
   return (
     <StyledResultBody>
       {results.map(ele => (

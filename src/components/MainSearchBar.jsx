@@ -91,8 +91,10 @@ export default function MainSearchBar({ hasResults, setResults }) {
       `/search/${inputText}`
     );
     setInputText("");
-    const results = await search.searchAll();
-    setResults(results);
+    const results = await search.search(inputText);
+    if (results.length > 0) {
+      setResults(results);
+    }
   };
 
   return (
