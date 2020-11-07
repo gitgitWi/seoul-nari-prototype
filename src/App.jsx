@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import MainHeader from "./components/MainHeader.jsx";
-
 import MainSearchResult from "./components/MainSearchResult.jsx";
+import MainAddButton from "./components/MainAddButton.jsx"
 
 const StyledBody = styled.div`
   position: absolute;
@@ -29,6 +29,7 @@ export default function App() {
         setResults={setResults}
       />
       <MainSearchResult results={results} />
+      <MainAddButton />
     </StyledBody>
   );
 }
