@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/analytics";
 
 const Config = {
   apiKey: "AIzaSyCpM9zxzdqwVQ9JuskPJiMcFvIA7lUXd1w",
@@ -13,7 +14,7 @@ const Config = {
 };
 
 firebase.initializeApp(Config);
-// firebase.analytics();
+firebase.analytics();
 
 const firestore = new firebase.firestore();
 

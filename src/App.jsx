@@ -24,7 +24,10 @@ export default function App() {
   const [results, setResults] = useState([]);
   return (
     <StyledBody>
-      <MainHeader setResults={setResults} />
+      <MainHeader
+        hasResults={results.length > 0 ? true : false}
+        setResults={setResults}
+      />
       <MainSearchResult results={results} />
     </StyledBody>
   );

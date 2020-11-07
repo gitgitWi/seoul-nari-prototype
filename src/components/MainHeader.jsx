@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
 
   width: 100vw;
   min-width: 200px;
-  height: 37vh;
+  height: ${props => (props.hasResults ? "15vh" : "35vh")};
 `;
 
 const StyledTitleButton = styled.button`
@@ -45,15 +45,14 @@ const StyledTitleButton = styled.button`
   }
 `;
 
-export default function MainHeader(props) {
-  const setResults = props.setResults;
+export default function MainHeader({ setResults, hasResults }) {
   const onTitleClick = () => {
     setResults([]);
   };
   return (
-    <StyledHeader>
+    <StyledHeader hasResults={hasResults}>
       <StyledTitleButton onClick={onTitleClick}>Seoul Nari</StyledTitleButton>
-      <MainSearchBar setResults={setResults} />
+      <MainSearchBar hasResults={hasResults} setResults={setResults} />
     </StyledHeader>
   );
 }
