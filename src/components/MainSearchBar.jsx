@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const StyledSearchBar = styled.div`
+const StyledSearchBar = styled.form.attrs({
+  method: "GET",
+  action: "#"
+})`
   position: absolute;
   top: 32vh;
   z-index: 3;
@@ -20,14 +23,19 @@ const StyledSearchBar = styled.div`
   border-radius: 15px;
 
   background-color: rgb(255, 248, 240);
+`;
 
-  &:before {
-    width: 35px;
-    padding: 0px 10px;
-    border-right: 1px solid rgb(88, 53, 94);
+const StyledIcon = styled.svg.attrs({
+  xmlns: "http://www.w3.org/2000/svg",
+  version: "1.1",
+  id: "Capa_1",
+  viewBox: "0 0 373.12 373.12"
+})`
+  width: 20px;
+  margin-left: 15px;
 
-    text-align: center;
-    content: "🔍";
+  path {
+    fill: rgb(88, 53, 94);
   }
 `;
 
@@ -40,9 +48,11 @@ const StyledSearchInput = styled.input.attrs({
   border: 0;
 
   font-family: "Noto Sans KR", sans-serif;
-  text-align: center;
   font-style: italic;
-  color: rgb(255, 248, 240);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  color: rgb(88, 53, 94);
 
   background-color: transparent;
 
@@ -56,9 +66,33 @@ const StyledSearchInput = styled.input.attrs({
 `;
 
 export default function MainSearchBar() {
+  const [inputText, setInputText] = useState("");
+
+  const onInputTextChange = e => {
+    const {
+      target: { value: text }
+    } = e;
+
+    setInputText(text);
+  };
+
+  const onSearchSubmit = e => {
+    e.preventDefault();
+    if (inputText.length === 0) {
+      alert("검색어가 입력되지 않았네여..");
+    }
+
+    setInputText("");
+  };
+
   return (
-    <StyledSearchBar>
-      <StyledSearchInput />
+    <StyledSearchBar onSubmit={onSearchSubmit}>
+      <StyledIcon>
+        <g>
+          <path d="M266.667,234.667h-16.96l-5.867-5.867c20.907-24.213,33.493-55.68,33.493-90.133C277.333,62.08,215.253,0,138.667,0    S0,62.08,0,138.667s62.08,138.667,138.667,138.667c34.453,0,65.92-12.587,90.133-33.387l5.867,5.867v16.853L341.333,373.12    l31.787-31.787L266.667,234.667z M138.667,234.667c-53.013,0-96-42.987-96-96c0-53.013,42.987-96,96-96c53.013,0,96,42.987,96,96    C234.667,191.68,191.68,234.667,138.667,234.667z" />
+        </g>
+      </StyledIcon>
+      <StyledSearchInput value={inputText} onChange={onInputTextChange} />
     </StyledSearchBar>
   );
 }
