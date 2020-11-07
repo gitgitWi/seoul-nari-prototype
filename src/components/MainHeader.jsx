@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
 
   width: 100vw;
   min-width: 200px;
-  height: ${props => (props.hasResults ? "15vh" : "35vh")};
+  height: ${props => (props.hasResults ? "15vh" : "37vh")};
 `;
 
 const StyledTitleLink = styled(Link)`
@@ -29,10 +29,10 @@ const StyledTitleButton = styled.button`
   font-weight: 900;
   font-size: 6rem;
   font-style: italic;
-  color: rgb(88, 53, 94);
-  transition: 0.1s;
+  color: rgb(250, 250, 250, 0.8);
 
   text-decoration: none;
+  transition: 0.1s;
 
   &:hover {
     cursor: pointer;

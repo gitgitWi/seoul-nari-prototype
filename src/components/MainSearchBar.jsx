@@ -8,7 +8,7 @@ const StyledSearchBar = styled.form.attrs({
   action: "#"
 })`
   position: absolute;
-  top: ${props => (props.hasResults ? "12vh" : "33vh")};
+  top: ${props => (props.hasResults ? "12vh" : "30vh")};
   z-index: 3;
 
   display: flex;
@@ -65,6 +65,14 @@ const StyledSearchInput = styled.input.attrs({
 
   &:focus {
     outline: none;
+  }
+
+  @media (max-width: 335px) {
+    font-size: 0.6rem;
+  }
+
+  @media (min-width: 336px) and (max-width: 669px) {
+    font-size: 1rem;
   }
 `;
 
