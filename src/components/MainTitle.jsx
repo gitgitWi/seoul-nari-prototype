@@ -17,6 +17,10 @@ const StyledTitle = styled.div`
     font-size: 6rem;
     font-style: italic;
     color: rgb(88, 53, 94);
+
+    @media (max-width: 700px) {
+      font-size: 3rem;
+    }
   }
 `;
 

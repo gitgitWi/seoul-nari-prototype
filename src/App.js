@@ -10,8 +10,8 @@ const StyledBody = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   margin: 0;
   padding: 0;
