@@ -10,17 +10,23 @@ const StyledHeader = styled.div`
   align-items: center;
 
   width: 100%;
+  min-width: 200px;
   height: 37vh;
 `;
 
 const StyledTitle = styled.div`
+  display: block;
   font-family: "Lato", sans-serif;
   font-weight: 900;
   font-size: 6rem;
   font-style: italic;
   color: rgb(88, 53, 94);
 
-  @media (max-width: 700px) {
+  @media (max-width: 335px) {
+    font-size: 2rem;
+  }
+
+  @media (min-width: 336px) and (max-width: 669px) {
     font-size: 3rem;
   }
 `;
