@@ -27,7 +27,10 @@ const StyledNariImg = styled.div`
   height: 100px;
   margin-right:10px;
 
-  background-image: url("${props => props.imgUrl}");
+  background-image: url("${props =>
+    props.imgUrl.length
+      ? props.imgUrl
+      : "https://images.unsplash.com/photo-1583224964978-2257b960c3d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=150&q=80"}");
   background-size: cover;
   border-radius: 15px 0 0 15px;
 `;

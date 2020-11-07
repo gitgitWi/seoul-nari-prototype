@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import search from "../db/searchService";
@@ -70,6 +70,10 @@ const StyledSearchInput = styled.input.attrs({
 
 export default function MainSearchBar({ hasResults, setResults }) {
   const [inputText, setInputText] = useState("");
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const onInputTextChange = e => {
     const {
@@ -104,7 +108,11 @@ export default function MainSearchBar({ hasResults, setResults }) {
           <path d="M266.667,234.667h-16.96l-5.867-5.867c20.907-24.213,33.493-55.68,33.493-90.133C277.333,62.08,215.253,0,138.667,0    S0,62.08,0,138.667s62.08,138.667,138.667,138.667c34.453,0,65.92-12.587,90.133-33.387l5.867,5.867v16.853L341.333,373.12    l31.787-31.787L266.667,234.667z M138.667,234.667c-53.013,0-96-42.987-96-96c0-53.013,42.987-96,96-96c53.013,0,96,42.987,96,96    C234.667,191.68,191.68,234.667,138.667,234.667z" />
         </g>
       </StyledIcon>
-      <StyledSearchInput value={inputText} onChange={onInputTextChange} />
+      <StyledSearchInput
+        value={inputText}
+        onChange={onInputTextChange}
+        ref={inputRef}
+      />
     </StyledSearchBar>
   );
 }
