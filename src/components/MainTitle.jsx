@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 25vh;
+
+  display: block;
 
   width: 100%;
-  height: 3.5rem;
-  background-color: rgb(255, 209, 102);
+
+  text-align: center;
 
   span {
     font-family: "Lato", sans-serif;
     font-weight: 900;
-    font-size: 3rem;
+    font-size: 6rem;
     font-style: italic;
     color: rgb(88, 53, 94);
   }
