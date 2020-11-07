@@ -5,6 +5,6 @@ const StyledResultBody = styled.div`
   margin-top: 80px;
 `;
 
-export default function MainSearchResult() {
-  return <StyledResultBody>검색결과창</StyledResultBody>;
+export default function MainSearchResult({ results }) {
+  return <StyledResultBody>{results}</StyledResultBody>;
 }

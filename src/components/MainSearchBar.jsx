@@ -66,8 +66,9 @@ const StyledSearchInput = styled.input.attrs({
   }
 `;
 
-export default function MainSearchBar() {
+export default function MainSearchBar(props) {
   const [inputText, setInputText] = useState("");
+  const setResults = props.setResults;
 
   const onInputTextChange = e => {
     const {

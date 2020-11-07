@@ -9,7 +9,7 @@ const StyledHeader = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  width: 100%;
+  width: 100vw;
   min-width: 200px;
   height: 37vh;
 `;
@@ -31,11 +31,11 @@ const StyledTitle = styled.div`
   }
 `;
 
-export default function MainHeader() {
+export default function MainHeader(props) {
   return (
     <StyledHeader>
       <StyledTitle>Seoul Nari</StyledTitle>
-      <MainSearchBar />
+      <MainSearchBar setResults={props.setResults} />
     </StyledHeader>
   );
 }
